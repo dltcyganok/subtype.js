@@ -2,7 +2,7 @@
  *
  * subtype.js
  *
- * Minimalistic and fast library for easy creation and class inheritance.
+ * Simple and fast OOP library with support for AMD and CommonJS.
  * Inspired by Backbone, Prototype and John Resig's Simple JavaScript Inheritance.
  *
  * @license MIT
@@ -20,6 +20,7 @@
  * 
  * var Actor = Human.extend({
  *   say: function (words) {
+ *     // explicit call the super method
  *     return 'actor ' + Human.prototype.say.call(this, words);
  *   }
  * });
@@ -90,6 +91,7 @@
 
   /**
    * Creates extended version of the current class.
+   * @static
    * @param {Object} object
    * @returns {Function}
    */

@@ -1,14 +1,14 @@
 subtype.js
 ==========
 
-Minimalistic and fast library for easy creation and class inheritance.
+Simple and fast OOP library with support for AMD and CommonJS.
 
 Example:
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Example</title>
+  <title>subtype.js example</title>
   <meta charset="utf-8">
   <script src="path/to/subtype.min.js"></script>
   <script>
@@ -24,6 +24,7 @@ Example:
 
   var Actor = Human.extend({
     say: function (words) {
+      // explicit call the super method
       return 'actor ' + Human.prototype.say.call(this, words);
     }
   });

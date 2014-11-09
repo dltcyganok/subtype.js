@@ -30,9 +30,9 @@
   'use strict';
 
   /**
-   * This polyfill covers the main use case which is creating
+   * This shim covers the main use case which is creating
    * a new object for which the prototype has been chosen.
-   * @param {Object} source
+   * @param {Object} proto
    * @returns {Object}
    */
   var create = typeof Object.create === 'function' ?
@@ -77,25 +77,29 @@
   /**
    * Creates extended version of the current class.
    * @static
-   * @param {Object} object
+   * @param {Object} [proto={}]
    * @returns {Function}
    */
-  var extend = function (object) {
-    var child,
+  var extend = function (proto) {
+    var Subtype,
         parent = this;
 
-    if (object && object.hasOwnProperty('constructor')) {
-      child = object.constructor;
-    } else {
-      // create the constructor if necessary
-      child = function () {
-        return parent.apply(this, arguments);
-      };
+    if (!(proto && typeof proto === 'object')) {
+      proto = {};
     }
 
-    child.prototype = assign(create(parent.prototype), object);
-    child.extend = extend;
-    return child;
+    if (proto.hasOwnProperty('constructor')) {
+      Subtype = proto.constructor;
+    } else {
+      Subtype = function () {
+        return parent.apply(this, arguments);
+      };
+      proto.constructor = Subtype;
+    }
+
+    Subtype.prototype = assign(create(parent.prototype), proto);
+    Subtype.extend = extend;
+    return Subtype;
   };
 
   return extend.call(Object, {

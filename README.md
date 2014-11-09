@@ -1,7 +1,7 @@
 subtype.js
 ==========
 
-Simple and fast OOP library.
+Simple and fast ([benchmarks](http://jsbin.com/yufajuvebu/1/)) OOP library.
 
 Example:
 ```html
@@ -41,6 +41,12 @@ Example:
       actor instanceof Actor &&
       actor instanceof Human &&
       actor instanceof Subtype
+    ); // => true
+
+    console.log(
+      Subtype === Subtype.prototype.constructor &&
+      Human === Human.prototype.constructor &&
+      Actor === Actor.prototype.constructor
     ); // => true
 
   </script>

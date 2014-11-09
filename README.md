@@ -10,7 +10,7 @@ Example:
 <head lang="en">
   <meta charset="utf-8">
   <title>subtype.js example</title>
-  <script src="subtype.min.js"></script>
+  <script src="path/to/subtype.min.js"></script>
   <script>
 
     var Human = Subtype.extend({

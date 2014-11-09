@@ -2,42 +2,11 @@
  *
  * subtype.js
  *
- * Simple and fast OOP library with support for AMD and CommonJS.
+ * Simple and fast OOP library.
  * Inspired by Backbone, Prototype and John Resig's Simple JavaScript Inheritance.
  *
  * @license MIT
- * @version 0.1.0
- * @example
- *
- * var Human = Subtype.extend({
- *   constructor: function (name) {
- *     this.name = name;
- *   },
- *   say: function (words) {
- *     return this.name + ': ' + words;
- *   }
- * });
- * 
- * var Actor = Human.extend({
- *   say: function (words) {
- *     // explicit call the super method
- *     return 'actor ' + Human.prototype.say.call(this, words);
- *   }
- * });
- * 
- * var human = new Human('Robert');
- * console.log(human.say('Hi!')); // => "Robert: Hi!"
- * 
- * var actor = new Actor('Jeremy');
- * console.log(actor.say('Hello!')); // => "actor Jeremy: Hello!"
- * 
- * console.log(
- *   human instanceof Human &&
- *   human instanceof Subtype &&
- *   actor instanceof Actor &&
- *   actor instanceof Human &&
- *   actor instanceof Subtype
- * ); // => true
+ * @version 0.2.0
  *
  */
 
@@ -63,15 +32,19 @@
   /**
    * This polyfill covers the main use case which is creating
    * a new object for which the prototype has been chosen.
+   * @param {Object} source
+   * @returns {Object}
    */
-  var create = Object.create || (function () {
-    function Surrogate() {}
+  var create = typeof Object.create === 'function' ?
+    Object.create :
+    (function () {
+      function Surrogate() {}
 
-    return function (proto) {
-      Surrogate.prototype = proto;
-      return new Surrogate();
-    };
-  })();
+      return function (proto) {
+        Surrogate.prototype = proto;
+        return new Surrogate();
+      };
+    })();
 
   /**
    * Assigns own enumerable properties of source object to the destination object.
@@ -79,15 +52,27 @@
    * @param {Object} source
    * @returns {Object}
    */
-  var assign = function (destination, source) {
-    for (var key in source) {
-      if (source.hasOwnProperty(key)) {
+  var assign = typeof Object.keys === 'function' ?
+    function (destination, source) {
+      var key,
+          keys = Object.keys(source),
+          index = 0,
+          length = keys.length;
+      for (; index < length; index++) {
+        key = keys[index];
         destination[key] = source[key];
       }
-    }
-
-    return destination;
-  };
+      return destination;
+    } :
+    function (destination, source) {
+      var key;
+      for (key in source) {
+        if (source.hasOwnProperty(key)) {
+          destination[key] = source[key];
+        }
+      }
+      return destination;
+    };
 
   /**
    * Creates extended version of the current class.
@@ -96,14 +81,21 @@
    * @returns {Function}
    */
   var extend = function (object) {
-    /** Outer constructor. */
-    function Subtype( /* params... */ ) {
-      this.constructor.apply(this, arguments); // auto call internal constructor
+    var child,
+        parent = this;
+
+    if (object && object.hasOwnProperty('constructor')) {
+      child = object.constructor;
+    } else {
+      // create the constructor if necessary
+      child = function () {
+        return parent.apply(this, arguments);
+      };
     }
 
-    Subtype.prototype = assign(create(this.prototype), object);
-    Subtype.extend = extend;
-    return Subtype;
+    child.prototype = assign(create(parent.prototype), object);
+    child.extend = extend;
+    return child;
   };
 
   return extend.call(Object, {

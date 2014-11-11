@@ -1,7 +1,7 @@
 subtype.js
 ==========
 
-Simple and fast ([benchmarks](http://jsfiddle.net/g30o7995/)) OOP library.
+Simple and fast ([benchmarks](http://jsfiddle.net/Lsjpuyg4/)) OOP library.
 
 Example:
 ```html

@@ -1,0 +1,28 @@
+{
+  "name": "subtype",
+  "version": "0.2.0",
+  "license": "MIT",
+  "description": "Minimalistic OOP library",
+  "homepage": "https://github.com/dltcyganok/subtype.js",
+  "authors": [
+    "dltcyganok <needfulbox@gmail.com>"
+  ],
+  "keywords": [
+    "oop",
+    "inheritance",
+    "fast"
+  ],
+  "main": "subtype.js",
+  "moduleType": [
+    "amd",
+    "node",
+    "globals"
+  ],
+  "ignore": [
+    ".gitignore",
+    ".jshintrc",
+    "LICENSE",
+    "optimize.bat",
+    "optimize.sh"
+  ]
+}

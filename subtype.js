@@ -2,11 +2,9 @@
  *
  * subtype.js
  *
- * Simple and fast OOP library.
- * Inspired by Backbone, Prototype and John Resig's Simple JavaScript Inheritance.
- *
  * @license MIT
  * @version 0.2.0
+ * @see [subtype.js]{@link https://github.com/dltcyganok/subtype.js}
  *
  */
 
@@ -38,11 +36,10 @@
   var create = typeof Object.create === 'function' ?
     Object.create :
     (function () {
-      function Surrogate() {}
-
+      var Constructor = function () {};
       return function (proto) {
-        Surrogate.prototype = proto;
-        return new Surrogate();
+        Constructor.prototype = proto;
+        return new Constructor();
       };
     })();
 
@@ -54,19 +51,15 @@
    */
   var assign = typeof Object.keys === 'function' ?
     function (destination, source) {
-      var key,
-          keys = Object.keys(source),
-          index = 0,
-          length = keys.length;
-      for (; index < length; index++) {
-        key = keys[index];
+      var keys = Object.keys(source);
+      for (var index = 0, length = keys.length; index < length; index++) {
+        var key = keys[index];
         destination[key] = source[key];
       }
       return destination;
     } :
     function (destination, source) {
-      var key;
-      for (key in source) {
+      for (var key in source) {
         if (source.hasOwnProperty(key)) {
           destination[key] = source[key];
         }
@@ -81,13 +74,12 @@
    * @returns {Function}
    */
   var extend = function (proto) {
-    var Subtype,
-        parent = this;
-
     if (!(proto && typeof proto === 'object')) {
       proto = {};
     }
 
+    var Subtype;
+    var parent = this;
     if (proto.hasOwnProperty('constructor')) {
       Subtype = proto.constructor;
     } else {

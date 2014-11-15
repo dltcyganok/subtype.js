@@ -4,7 +4,7 @@
  *
  * @license MIT
  * @version 0.2.0
- * @see [subtype.js]{@link https://github.com/dltcyganok/subtype.js}
+ * @see [subtype.js]{@link https://github.com/dltcyganok/subtype}
  *
  */
 

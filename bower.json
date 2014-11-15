@@ -21,8 +21,10 @@
   "ignore": [
     ".gitignore",
     ".jshintrc",
+    ".npmignore",
     "LICENSE",
     "optimize.bat",
-    "optimize.sh"
+    "optimize.sh",
+    "package.json"
   ]
 }

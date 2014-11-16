@@ -1,0 +1,21 @@
+{
+  "name": "subtypejs",
+  "version": "0.2.1",
+  "license": "MIT",
+  "description": "Minimalistic OOP library",
+  "homepage": "https://github.com/dtcyganok/subtype",
+  "author": "dltcyganok <needfulbox@gmail.com>",
+  "keywords": [
+    "oop",
+    "inheritance",
+    "fast"
+  ],
+  "main": "subtype.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dtcyganok/subtype.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dtcyganok/subtype/issues"
+  }
+}

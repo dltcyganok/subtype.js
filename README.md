@@ -3,7 +3,7 @@ subtype
 
 Simple and fast ([benchmarks](http://jsfiddle.net/dv6ks3ok/)) OOP library.
 
-####Install
+##Install
 For [bower](http://bower.io/) users:
 
     bower install subtype
@@ -12,7 +12,7 @@ For [node.js](http://nodejs.org/) users:
 
     npm install subtypejs
 
-####Usage
+##Usage
 For **AMD** users:
 ```javascript
 define(function (require) {
@@ -26,7 +26,7 @@ define(function (require) {
 
 For **node.js** users:
 ```javascript
-var Subtype = require('subtype');
+var Subtype = require('subtypejs');
 
 // code...
 ```

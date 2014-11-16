@@ -12,6 +12,8 @@ For [node.js](http://nodejs.org/) users:
 
     npm install subtypejs
 
+Also you can download [uncompressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.js) and [compressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.min.js) version from GitHub.
+
 ##Usage
 For **AMD** users:
 ```javascript

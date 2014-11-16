@@ -1,0 +1,10 @@
+.idea
+benchmarks
+tests
+.gitignore
+.jshintrc
+.npmignore
+bower.json
+LICENSE
+optimize.bat
+optimize.sh

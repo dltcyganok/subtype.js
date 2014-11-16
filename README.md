@@ -15,7 +15,12 @@ For [node.js](http://nodejs.org/) users:
 Also you can download [uncompressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.js) and [compressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.min.js) version from GitHub.
 
 ##Usage
-For **AMD** users:
+In a browser:
+```html
+<script src="path/to/subtype.js"></script>
+```
+
+In an **AMD** loader:
 ```javascript
 define(function (require) {
 
@@ -26,7 +31,7 @@ define(function (require) {
 });
 ```
 
-For **node.js** users:
+In **node.js**:
 ```javascript
 var Subtype = require('subtypejs');
 

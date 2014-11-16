@@ -1,58 +1,78 @@
-subtype.js
-==========
+subtype
+=======
 
-Simple and fast ([benchmarks](http://jsfiddle.net/Lsjpuyg4/)) OOP library.
+Simple and fast ([benchmarks](http://jsfiddle.net/dv6ks3ok/)) OOP library.
 
-Example:
+##Install
+For [bower](http://bower.io/) users:
+
+    bower install subtype
+
+For [node.js](http://nodejs.org/) users:
+
+    npm install subtypejs
+
+Also you can download [uncompressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.js) and [compressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.min.js) version from GitHub.
+
+##Usage
+In a browser:
 ```html
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="utf-8">
-  <title>subtype.js example</title>
-  <script src="path/to/subtype.min.js"></script>
-  <script>
+<script src="path/to/subtype.js"></script>
+```
 
-    var Human = Subtype.extend({
-      constructor: function (name) {
-        this.name = name;
-      },
-      say: function (words) {
-        return this.name + ': ' + words;
-      }
-    });
+In an **AMD** loader:
+```javascript
+define(function (require) {
 
-    var Actor = Human.extend({
-      say: function (words) {
-        // explicit call the super method
-        return 'actor ' + Human.prototype.say.call(this, words);
-      }
-    });
+  var Subtype = require('subtype');
 
-    var human = new Human('Robert');
-    console.log(human.say('Hi!')); // => "Robert: Hi!"
+  // code...
 
-    var actor = new Actor('Jeremy');
-    console.log(actor.say('Hello!')); // => "actor Jeremy: Hello!"
+});
+```
 
-    console.log(
-      human instanceof Human &&
-      human instanceof Subtype &&
-      actor instanceof Actor &&
-      actor instanceof Human &&
-      actor instanceof Subtype
-    ); // => true
+In **node.js**:
+```javascript
+var Subtype = require('subtypejs');
 
-    console.log(
-      Subtype === Subtype.prototype.constructor &&
-      Human === Human.prototype.constructor &&
-      Actor === Actor.prototype.constructor
-    ); // => true
+// code...
+```
 
-  </script>
-</head>
-<body>
+And then:
+```javascript
+var Human = Subtype.extend({
+  constructor: function (name) {
+    this.name = name;
+  },
+  say: function (words) {
+    return this.name + ': ' + words;
+  }
+});
 
-</body>
-</html>
+var Actor = Human.extend({
+  say: function (words) {
+    // explicit call the super method
+    return 'actor ' + Human.prototype.say.call(this, words);
+  }
+});
+
+var human = new Human('Robert');
+console.log(human.say('Hi!')); // => "Robert: Hi!"
+
+var actor = new Actor('Jeremy');
+console.log(actor.say('Hello!')); // => "actor Jeremy: Hello!"
+
+console.log(
+  human instanceof Human &&
+  human instanceof Subtype &&
+  actor instanceof Actor &&
+  actor instanceof Human &&
+  actor instanceof Subtype
+); // => true
+
+console.log(
+  Subtype === Subtype.prototype.constructor &&
+  Human === Human.prototype.constructor &&
+  Actor === Actor.prototype.constructor
+); // => true
 ```

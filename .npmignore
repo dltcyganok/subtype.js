@@ -2,7 +2,7 @@
 benchmarks
 tests
 .gitignore
-.jshintrc
+.eslintrc
 .npmignore
 bower.json
 LICENSE

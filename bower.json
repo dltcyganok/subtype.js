@@ -20,7 +20,7 @@
   ],
   "ignore": [
     ".gitignore",
-    ".jshintrc",
+    ".eslintrc",
     ".npmignore",
     "LICENSE",
     "optimize.bat",

@@ -1,8 +1,8 @@
 .idea
 benchmarks
 tests
-.gitignore
 .eslintrc
+.gitignore
 .npmignore
 bower.json
 LICENSE

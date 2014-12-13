@@ -19,8 +19,8 @@
     "globals"
   ],
   "ignore": [
-    ".gitignore",
     ".eslintrc",
+    ".gitignore",
     ".npmignore",
     "LICENSE",
     "optimize.bat",

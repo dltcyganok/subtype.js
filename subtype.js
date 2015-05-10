@@ -3,7 +3,7 @@
  * subtype.js
  *
  * @license MIT
- * @version 0.2.1
+ * @version 0.2.2
  * @see [subtype.js]{@link https://github.com/dtcyganok/subtype}
  *
  */

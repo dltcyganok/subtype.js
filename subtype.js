@@ -44,7 +44,8 @@
     })();
 
   /**
-   * Assigns own enumerable properties of source object to the destination object.
+   * Assigns own enumerable properties of source object
+   * to the destination object.
    * @param {Object} destination
    * @param {Object} source
    * @returns {Object}
@@ -52,7 +53,10 @@
   var assign = typeof Object.keys === 'function' ?
     function (destination, source) {
       var keys = Object.keys(source);
-      for (var index = 0, length = keys.length; index < length; index++) {
+      var index = 0;
+      var length = keys.length;
+
+      for (; index < length; index++) {
         var key = keys[index];
         destination[key] = source[key];
       }
@@ -70,16 +74,14 @@
   /**
    * Creates extended version of the current class.
    * @static
-   * @param {Object} [proto={}]
+   * @param {Object} [base={}]
    * @returns {Function}
    */
-  var extend = function (proto) {
-    if (!(proto && typeof proto === 'object')) {
-      proto = {};
-    }
-
-    var Subtype;
+  var extend = function (base) {
+    var proto = base && typeof base === 'object' ? base : {};
     var parent = this;
+    var Subtype;
+
     if (proto.hasOwnProperty('constructor')) {
       Subtype = proto.constructor;
     } else {

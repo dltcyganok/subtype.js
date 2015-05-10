@@ -1,7 +1,7 @@
 subtype
 =======
 
-Simple and fast ([benchmarks](http://jsfiddle.net/dv6ks3ok/)) OOP library.
+Simple OOP library. Works fast like native inheritance (see [benchmarks](http://jsfiddle.net/dv6ks3ok/)). The library doesn't include any `super`, because it contaminates the prototype and a bad influence on performance.
 
 ##Install
 For [bower](http://bower.io/) users:
@@ -15,16 +15,14 @@ For [node.js](http://nodejs.org/) users:
 Also you can download [uncompressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.js) and [compressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.min.js) version from GitHub.
 
 ##Usage
-In a browser:
+In a **browser**:
 ```html
 <script src="path/to/subtype.js"></script>
 ```
 
 In an **AMD** loader:
 ```javascript
-define(function (require) {
-
-  var Subtype = require('subtype');
+define(['subtype'], function (Subtype) {
 
   // code...
 

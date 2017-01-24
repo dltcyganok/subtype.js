@@ -1,26 +1,33 @@
-subtype
-=======
+# subtype
 
-Simple OOP library. Works fast like native inheritance (see [benchmarks](http://jsfiddle.net/dv6ks3ok/)). The library doesn't include any `super`, because it contaminates the prototype and a bad influence on performance.
+Simple OOP library. Works fast like native inheritance (see [benchmarks](https://jsfiddle.net/7u22cpq5/)). The library doesn't include any `super`, because it contaminates the prototype and a bad influence on performance.
 
-##Install
-For [bower](http://bower.io/) users:
+## Install
 
-    bower install subtype
+For [npm](https://www.npmjs.com/) users:
 
-For [node.js](http://nodejs.org/) users:
+```bash
+npm install subtypejs
+```
 
-    npm install subtypejs
+For [bower](https://bower.io/) users:
+
+```bash
+bower install subtype
+```
 
 Also you can download [uncompressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.js) and [compressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.min.js) version from GitHub.
 
-##Usage
+## Usage
+
 In a **browser**:
+
 ```html
 <script src="path/to/subtype.js"></script>
 ```
 
 In an **AMD** loader:
+
 ```javascript
 define(['subtype'], function (Subtype) {
 
@@ -30,6 +37,7 @@ define(['subtype'], function (Subtype) {
 ```
 
 In **node.js**:
+
 ```javascript
 var Subtype = require('subtypejs');
 
@@ -37,6 +45,7 @@ var Subtype = require('subtypejs');
 ```
 
 And then:
+
 ```javascript
 var Human = Subtype.extend({
   constructor: function (name) {

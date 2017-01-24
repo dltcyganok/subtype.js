@@ -1,6 +1,6 @@
 # subtype
 
-Simple OOP library, which can be useful for the environment ≤ ES5. Works fast like native inheritance (see [benchmarks](https://jsfiddle.net/7u22cpq5/)). The library doesn't include any `super`, because it contaminates the prototype and a bad influence on performance.
+Simple OOP library, which can be useful for the environment ≤ ES5. Works fast like native inheritance (see [benchmarks](https://jsfiddle.net/7u22cpq5/)).
 
 ## Install
 
@@ -15,8 +15,6 @@ For [bower](https://bower.io/) users:
 ```bash
 bower install subtype
 ```
-
-Also you can download [uncompressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.js) and [compressed](https://cdn.rawgit.com/dtcyganok/subtype/master/subtype.min.js) version from GitHub.
 
 ## Usage
 

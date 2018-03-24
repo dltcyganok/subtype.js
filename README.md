@@ -1,6 +1,6 @@
 # subtype
 
-Simple OOP library. Works fast like native inheritance (see [benchmarks](https://jsfiddle.net/7u22cpq5/)). The library doesn't include any `super`, because it contaminates the prototype and a bad influence on performance.
+Simple OOP library, which can be useful for the environment ≤ ES5. Works fast like native inheritance (see [benchmarks](https://jsfiddle.net/7u22cpq5/)). The library doesn't include any `super`, because it contaminates the prototype and a bad influence on performance.
 
 ## Install
 
